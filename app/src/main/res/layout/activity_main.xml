@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <TextView
+        style="@style/kroov_titlex"
+        android:text="Settings (AUS)" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/kroov_separator"
+                android:text="@string/Application" />
+
+            <LinearLayout
+                style="@style/kroov_drawerx"
+                android:onClick="_permissions">
+
+                <TextView
+                    style="@style/kroov_name"
+                    android:text="@string/Permissions" />
+
+                <TextView
+                    style="@style/kroov_description"
+                    android:text="manage application's permissions" />
+
+            </LinearLayout>
+
+            <View style="@style/kroov_split" />
+
+            <LinearLayout
+                style="@style/kroov_drawerx"
+                android:onClick="_profiles">
+
+                <TextView
+                    style="@style/kroov_name"
+                    android:text="Profiles" />
+
+                <TextView
+                    style="@style/kroov_description"
+                    android:text="manage saaved profiles" />
+
+            </LinearLayout>
+
+            <View style="@style/kroov_split" />
+
+            <LinearLayout style="@style/kroov_drawerx"
+                android:onClick="_ui">
+                <TextView style="@style/kroov_name"
+                    android:text="User Interface"/>
+                <TextView style="@style/kroov_description"
+                    android:text="edit the aplication layout, theme, preferences"/>
+            </LinearLayout>
+
+            <View style="@style/kroov_split" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

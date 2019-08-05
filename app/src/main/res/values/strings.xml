@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Plugins">Plugins</string>
+    <string name="solid_data">solid data</string>
+    <string name="_textDescriptionPlugins">installed plugins informations</string>
+    <string name="TO_REMOVE_description_example">description, this is an example of description and what it should look like on the runtime</string>
+    <string name="plh__task_summary">%s (%s)</string>
+    <string name="plh__task_part_summary">%s (%s)</string>
+</resources>

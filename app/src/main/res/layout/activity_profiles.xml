@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".activity.ProfilesActivity">
+
+    <LinearLayout style="@style/kroov_head">
+
+        <TextView
+            style="@style/kroov_title"
+            android:text="Profiles" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:paddingBottom="50dp"
+            android:id="@+id/profiles_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <Button style="?android:buttonBarButtonStyle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:onClick="_killThenReload"
+        android:text="kill then reload"/>
+
+</LinearLayout>

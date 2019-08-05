@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorSilk" format="color"/>
+
+    <color name="DarkColorPrimary">#686868</color>
+    <color name="DarkColorPrimaryDark">#FF000000</color>
+    <color name="DarkColorAccent">#039BE5</color>
+    <color name="DarkColorSilk">#2B2B2B</color>
+
+    <color name="LightColorPrimary">#1F1F1F</color>
+    <color name="LightColorPrimaryDark">#A5A5A5</color>
+    <color name="LightColorAccent">#0D47A1</color>
+    <color name="LightColorSilk">#919191</color>
+
+    <color name="transparentBlack">#5E000000</color>
+    <color name="transparentWhite">#5Effffff</color>
+
+    <color name="triggered">#B2B71C1C</color>
+    <color name="good">#B2004D40</color>
+
+    <color name="pink">#BF00FF</color>
+    <color name="yellow">#FFEB3B</color>
+</resources>

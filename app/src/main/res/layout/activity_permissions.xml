@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".activity.PermissionsActivity">
+
+    <LinearLayout style="@style/kroov_head">
+
+        <TextView
+            style="@style/kroov_title"
+            android:text="@string/Permissions" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/kroov_separator"
+                android:text="@string/Application" />
+
+            <LinearLayout style="@style/kroov_box">
+
+                <LinearLayout style="@style/kroov_drawer">
+
+                    <TextView
+                        style="@style/kroov_name"
+                        android:text="@string/Battery_Optimization" />
+
+                    <TextView
+                        style="@style/kroov_description"
+                        android:text="@string/_textDescriptionBatteryOptimization" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/ignoreBatteryOptimization"
+                    style="@style/kroov_quarter"
+                    android:onClick="_request" />
+
+            </LinearLayout>
+
+            <View style="@style/kroov_split" />
+
+            <LinearLayout
+                style="@style/kroov_box"
+                android:onClick="_request">
+
+                <LinearLayout style="@style/kroov_drawer">
+
+                    <TextView
+                        style="@style/kroov_name"
+                        android:text="@string/Storage" />
+
+                    <TextView
+                        style="@style/kroov_description"
+                        android:text="@string/_textDescriptionStorage" />
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/storage"
+                    style="@style/kroov_quarter"
+                    android:onClick="_request" />
+
+            </LinearLayout>
+
+            <View style="@style/kroov_split" />
+
+            <TextView
+                style="@style/kroov_separator"
+                android:text="@string/Daemons" />
+
+            <LinearLayout style="@style/kroov_box">
+
+                <LinearLayout style="@style/kroov_drawer">
+
+                    <TextView
+                        style="@style/kroov_name"
+                        android:text="@string/Write_System_Settings" />
+
+                    <TextView
+                        style="@style/kroov_description"
+                        android:text="@string/_textDescriptionWriteSystemSettings" />
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/writeSystemSettings"
+                    style="@style/kroov_quarter"
+                    android:onClick="_request" />
+
+            </LinearLayout>
+
+            <View style="@style/kroov_split" />
+
+            <LinearLayout style="@style/kroov_box">
+
+                <LinearLayout style="@style/kroov_drawer">
+
+                    <TextView
+                        style="@style/kroov_name"
+                        android:text="@string/Display_Over_Other_Apps" />
+
+                    <TextView
+                        style="@style/kroov_description"
+                        android:text="@string/_textDescriptionDisplayOverOtherApps" />
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/displayOverOtherApps"
+                    style="@style/kroov_quarter"
+                    android:onClick="_request" />
+
+            </LinearLayout>
+
+            <View style="@style/kroov_split" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
