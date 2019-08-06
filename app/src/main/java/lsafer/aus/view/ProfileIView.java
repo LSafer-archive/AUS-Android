@@ -17,30 +17,30 @@ import lsafer.view.Refreshable;
 import lsafer.view.ViewAdapter;
 
 /**
+ * a view to display level 1
+ * information of a {@link Profile}.
+ *
  * @author LSaferSE
- * @version 1 alpha (05-Aug-19)
+ * @version 2 release (06-Aug-19)
  * @since 05-Aug-19
  */
 public class ProfileIView extends ViewAdapter implements Refreshable {
 
     /**
-     *
+     * the listener to invoke when specific events happened in this.
+     */
+    private EventListener listener;
+    /**
+     * targeted {@link Profile} to display information from.
      */
     private Profile profile;
 
     /**
+     * initialize this.
      *
-     */
-    private EventListener listener;
-
-    /**
-     *
-     */
-    private boolean running;
-
-    /**
-     * @param context
-     * @param profile
+     * @param context  to initialize the view from
+     * @param listener to invoke when specific events happened in this
+     * @param profile  to display information from
      */
     public ProfileIView(Context context, EventListener listener, Profile profile) {
         this.profile = profile;
@@ -70,35 +70,42 @@ public class ProfileIView extends ViewAdapter implements Refreshable {
         return view;
     }
 
-    /**
-     * @return
-     */
-    public Profile getProfile() {
-        return profile;
-    }
-
     @Override
     public void refresh() {
-        this.getView().<Button>findViewById(R.id.liver).setText("status: "+this.profile.$status);
+        this.getView().<Button>findViewById(R.id.liver).setText(this.getContext().getString(R.string.plh__status, this.profile.$status));
         this.getView().findViewById(R.id.banner).setBackground(this.getContext().getDrawable(
                 this.profile.$status.equals(Run.start) ? R.drawable.round_good : R.drawable.round_silk));
     }
 
     /**
+     * get the targeted {@link Profile}.
      *
+     * @return the current targeted task
+     */
+    public Profile getProfile() {
+        return profile;
+    }
+
+    /**
+     * a listener to be invoked when specific events happened in the view adapter.
      */
     public interface EventListener {
         /**
-         * @param adapter
-         * @return
+         * get called when the view clicked.
+         *
+         * @param adapter the adapter that had called this method
          */
-        default boolean onProfileLongClick(ProfileIView adapter){
-            return true;
+        default void onProfileClick(ProfileIView adapter) {
         }
+
         /**
-         * @param adapter
+         * get called when the view clicked a long click.
+         *
+         * @param adapter the adapter that had called this method
+         * @return what to return to {@link View.OnLongClickListener#onLongClick(View)}
          */
-        default void onProfileClick(ProfileIView adapter){
+        default boolean onProfileLongClick(ProfileIView adapter) {
+            return true;
         }
     }
 

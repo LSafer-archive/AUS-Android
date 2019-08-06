@@ -26,7 +26,6 @@ import lsafer.view.Refreshable;
  */
 public class PermissionsActivity extends AppCompatActivity implements Refreshable {
 
-
     /**
      * setup views with data.
      */

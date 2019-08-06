@@ -1,41 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/banner"
-        android:background="@drawable/round_silk"
         style="@style/kroov_box"
+        android:background="@drawable/round_silk"
         android:padding="10dp">
 
-        <LinearLayout
-            style="@style/kroov_drawer">
+        <LinearLayout style="@style/kroov_drawer">
 
             <TextView
                 android:id="@+id/name"
-                android:textStyle="bold"
                 style="@style/kroov_title"
-                android:text="name" />
-
-            <TextView
-                style="@style/kroov_separator"
-                android:text="tasks" />
+                android:textStyle="bold"
+                tools:text="MyProfile" />
 
             <LinearLayout
-                android:layout_marginStart="15dp"
                 android:id="@+id/tasks_linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:orientation="vertical" />
 
         </LinearLayout>
 
         <Button
-            android:text="START"
             android:id="@+id/liver"
-            style="@style/kroov_quarter" />
+            style="@style/kroov_quarter"
+            android:text="@string/abs__start" />
 
     </LinearLayout>
 

@@ -16,6 +16,9 @@ import lsafer.services.io.Task;
 import lsafer.view.Refreshable;
 
 /**
+ * an activity to display (and edit) level 0
+ * information of a {@link Task}.
+ *
  * @author LSaferSE
  * @version 1 alpha (05-Aug-19)
  * @since 05-Aug-19
@@ -23,9 +26,16 @@ import lsafer.view.Refreshable;
 public class TaskActivity extends AppCompatActivity implements Refreshable {
 
     /**
-     *
+     * targeted {@link Task} to display information from.
      */
     private Task task;
+
+    @Override
+    public void refresh() {
+        this.task.<Task>reset().load();
+        this.<TextView>findViewById(R.id.name).setText(this.task.remote().getName());
+        this.<EditText>findViewById(R.id.feather).setText(JSON.stringify(this.task).replace("\t", "\t\t"));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,15 +56,10 @@ public class TaskActivity extends AppCompatActivity implements Refreshable {
         this.refresh();
     }
 
-    @Override
-    public void refresh() {
-        this.task.<Task>reset().load();
-        this.<TextView>findViewById(R.id.name).setText(this.task.remote().getName());
-        this.<EditText>findViewById(R.id.feather).setText(JSON.stringify(this.task).replace("\t", "\t\t"));
-    }
-
     /**
-     * @param view
+     * save the {@link #task targeted task}.
+     *
+     * @param view that had called this method
      */
     public void _save(View view) {
         TextView feather = this.findViewById(R.id.feather);

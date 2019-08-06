@@ -20,6 +20,9 @@ import lsafer.services.io.Task;
 import lsafer.view.Refreshable;
 
 /**
+ * an activity to display (and edit) level 0
+ * information of a {@link Profile}.
+ *
  * @author LSaferSE
  * @version 1 alpha (05-Aug-19)
  * @since 05-Aug-19
@@ -27,28 +30,9 @@ import lsafer.view.Refreshable;
 public class ProfileActivity extends AppCompatActivity implements Refreshable, TaskIView.EventListener {
 
     /**
-     *
+     * targeted {@link Profile} to display information from.
      */
     private Profile profile;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.setTheme(UserInterface.theme());
-        this.setContentView(R.layout.activity_profile);
-
-        String path = this.getIntent().getDataString();
-        assert path != null;
-
-        this.profile = new Profile().remote(path);
-        this.refresh();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        this.refresh();
-    }
 
     @Override
     public void refresh() {
@@ -74,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity implements Refreshable, T
     public boolean onTaskLongClick(TaskIView adapter) {
         new AlertDialog.Builder(this, R.style.AppAlertDialog)
                 .setMessage("do you really want to delete \"" + adapter.getTask().remote().getName() + "\" task ?")
-                .setPositiveButton("yes", (d, w)-> {
+                .setPositiveButton("yes", (d, w) -> {
                     boolean ww = adapter.getTask().delete();
                     if (ww) this.refresh();
 
@@ -83,6 +67,25 @@ public class ProfileActivity extends AppCompatActivity implements Refreshable, T
                 })
                 .show();
         return false;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.setTheme(UserInterface.theme());
+        this.setContentView(R.layout.activity_profile);
+
+        String path = this.getIntent().getDataString();
+        assert path != null;
+
+        this.profile = new Profile().remote(path);
+        this.refresh();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.refresh();
     }
 
 }

@@ -11,27 +11,28 @@
 
         <TextView
             style="@style/kroov_title"
-            android:text="Profiles" />
+            android:text="@string/abs__profiles" />
     </LinearLayout>
 
     <ScrollView
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
-            android:paddingBottom="50dp"
             android:id="@+id/profiles_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            android:paddingBottom="50dp" />
 
     </ScrollView>
 
-    <Button style="?android:buttonBarButtonStyle"
-        android:layout_height="wrap_content"
+    <Button
+        style="?android:buttonBarButtonStyle"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="_killThenReload"
-        android:text="kill then reload"/>
+        android:text="@string/abs__reinitialize" />
 
 </LinearLayout>

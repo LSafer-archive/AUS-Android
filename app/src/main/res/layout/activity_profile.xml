@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="?android:colorPrimaryDark"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?android:colorPrimaryDark"
+    android:orientation="vertical">
 
     <TextView
-        style="@style/kroov_titlex"
         android:id="@+id/name"
-        android:text="Profile"/>
+        style="@style/kroov_titlex"
+        android:text="@string/abs__profile" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:paddingBottom="50dp"
             android:id="@+id/tasks_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            android:paddingBottom="50dp" />
 
     </ScrollView>
 

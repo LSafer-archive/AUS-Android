@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Application">التطبيق</string>
-    <string name="Advanced">متقدم</string>
-    <string name="Developer">مطور</string>
-    <string name="Start">تشغيل</string>
-    <string name="Stop">ايقاف</string>
-    <string name="ID">اسم</string>
-    <string name="Provider">مزود</string>
-    <string name="Search">بحث</string>
-    <string name="Handler">معالج</string>
-    <string name="Task">مهمة</string>
-    <string name="Delete">حذف</string>
+    <string name="app_name">خدمات المستخدم المتقدمة</string>
+    <string name="app_version">بيتا 7</string>
+
+    <string name="abs__application">التطبيق</string>
+    <string name="abs__advanced">متقدم</string>
+    <string name="abs__developer">مطور</string>
+    <string name="abs__start">تشغيل</string>
+    <string name="abs__stop">ايقاف</string>
+    <string name="abs_id">اسم</string>
+    <string name="abs__provider">مزود</string>
+    <string name="abs__search">بحث</string>
+    <string name="abs__handler">معالج</string>
+    <string name="abs__task">مهمة</string>
+    <string name="abs_delete">حذف</string>
     <string name="Expand">توسعة</string>
     <string name="Info">معلومات</string>
     <string name="Refresh">تحديث</string>
-    <string name="Save">حفض</string>
+    <string name="abs__save">حفض</string>
     <string name="Add">إضافة</string>
     <string name="Sends">يرسل</string>
     <string name="Receives">يستقبل</string>
@@ -22,12 +25,12 @@
     <string name="No_data">لا بيانات</string>
     <string name="Choose">إختر</string>
     <string name="Custom">مخصص</string>
-    <string name="Permissions">صلاحيات</string>
-    <string name="Battery_Optimization">تحسين البطارية</string>
+    <string name="abs__permissions">صلاحيات</string>
+    <string name="abs__battery_optimization">تحسين البطارية</string>
     <string name="Daemons">ديمونز</string>
-    <string name="Storage">التخزين</string>
-    <string name="Write_System_Settings">تعديل إعدادات النظام</string>
-    <string name="Display_Over_Other_Apps">الظهور فوق التطبيقات</string>
+    <string name="abs__storage">التخزين</string>
+    <string name="abs__write_system_settings">تعديل إعدادات النظام</string>
+    <string name="abs__display_over_other_apps">الظهور فوق التطبيقات</string>
     <string name="Development">تطوير</string>
     <string name="Compile">كمبيل</string>
     <string name="Data">بيانات</string>
@@ -58,4 +61,9 @@
     <string name="Icon">أيقونة</string>
     <string name="name">الأسم</string>
     <string name="Copy">نسخ</string>
+
+    <string name="txt__description_storage">لكي يستطيع قراءة/كتابة الديمنز من/الى الذاكرة</string>
+    <string name="txt__description_write_system_settings">لتكون قادرة على ضبط قيم النظام مثل السطوع والحجم
+     ، هذا الإذن ليس خطيرًا لأن معظم إعدادات النظام الهامة مغطاة بحماية وكلاء النظام</string>
+
 </resources>

@@ -29,7 +29,7 @@
         </activity>
 
         <activity android:name=".activity.ProfileActivity" />
-        <activity android:name=".activity.TaskActivity"/>
+        <activity android:name=".activity.TaskActivity" />
         <activity android:name=".activity.ProfilesActivity" />
         <activity android:name=".activity.PermissionsActivity" />
         <activity android:name=".activity.UIActivity" />

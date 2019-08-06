@@ -13,11 +13,19 @@ import lsafer.aus.io.UserInterface;
 import lsafer.view.Refreshable;
 
 /**
+ * activity were the user can manage he's UI preference.
+ *
  * @author LSaferSE
  * @version 1 alpha (05-Aug-19)
  * @since 05-Aug-19
  */
 public class UIActivity extends AppCompatActivity implements Refreshable {
+
+    @Override
+    public void refresh() {
+        UserInterface.$.<UserInterface>reset().load();
+        this.<Button>findViewById(R.id.theme).setText(UserInterface.$.theme);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,18 +35,14 @@ public class UIActivity extends AppCompatActivity implements Refreshable {
         this.refresh();
     }
 
-    @Override
-    public void refresh() {
-        UserInterface.$.<UserInterface>reset().load();
-        this.<Button>findViewById(R.id.theme).setText(UserInterface.$.theme);
-    }
-
     /**
-     * @param view
+     * set a preference.
+     *
+     * @param view that had called this method
      */
     public void _set(View view) {
         //noinspection SwitchStatementWithTooFewBranches
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.theme:
                 UserInterface.$.theme = UserInterface.$.theme.equals("black") ? "light" : "black";
                 UserInterface.$.save();

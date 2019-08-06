@@ -45,21 +45,25 @@ public class MainActivity extends AppCompatActivity {
     /**
      * opens {@link PermissionsActivity}.
      *
-     * @param view that called this method
+     * @param view that had called this method
      */
     public void _permissions(View view) {
         this.startActivity(new Intent(this, PermissionsActivity.class));
     }
 
     /**
-     * @param view
+     * start {@link ProfilesActivity}.
+     *
+     * @param view that had called this method
      */
     public void _profiles(View view) {
         this.startActivity(new Intent(this, ProfilesActivity.class));
     }
 
     /**
-     * @param view
+     * start {@link UIActivity}.
+     *
+     * @param view that had called this method
      */
     public void _ui(View view) {
         this.startActivity(new Intent(this, UIActivity.class));

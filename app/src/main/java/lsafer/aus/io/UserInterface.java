@@ -6,8 +6,10 @@ import lsafer.aus.R;
 import lsafer.io.JSONFileStructure;
 
 /**
+ * user interface preference data storage.
+ *
  * @author LSaferSE
- * @version 1 alpha (05-Aug-19)
+ * @version 2 release (06-Aug-19)
  * @since 05-Aug-19
  */
 public class UserInterface extends JSONFileStructure {
@@ -24,10 +26,12 @@ public class UserInterface extends JSONFileStructure {
     public String theme = "black";
 
     /**
-     * @return
+     * get the theme resources id from the {@link #$ global instance}.
+     *
+     * @return the theme resources id
      */
-    public static int theme(){
-        switch (UserInterface.$.theme){
+    public static int theme() {
+        switch (UserInterface.$.theme) {
             case "black":
                 return R.style.BlackAppTheme;
             case "light":

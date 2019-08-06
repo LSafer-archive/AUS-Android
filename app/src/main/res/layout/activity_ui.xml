@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="?android:colorPrimaryDark"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?android:colorPrimaryDark"
+    android:orientation="vertical">
 
-    <TextView style="@style/kroov_titlex"
-        android:text="User Interface"/>
+    <TextView
+        style="@style/kroov_titlex"
+        android:text="@string/abs__user_interface" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+            android:orientation="vertical">
 
-            <TextView style="@style/kroov_separator"
-                android:text="style"/>
+            <TextView
+                style="@style/kroov_separator"
+                android:text="@string/abs__style" />
 
             <LinearLayout style="@style/kroov_box">
 
                 <LinearLayout style="@style/kroov_drawer">
-                    <TextView style="@style/kroov_name"
-                        android:text="Theme"/>
-                    <TextView style="@style/kroov_description"
-                        android:text="the overall theme of "/>
+
+                    <TextView
+                        style="@style/kroov_name"
+                        android:text="@string/abs__theme" />
+
+                    <TextView
+                        style="@style/kroov_description"
+                        android:text="@string/txt__description_theme" />
                 </LinearLayout>
 
                 <Button
-                    android:onClick="_set"
                     android:id="@+id/theme"
                     style="@style/kroov_quarter"
-                    android:text="black"/>
+                    android:onClick="_set"
+                    tools:text="black" />
 
             </LinearLayout>
 

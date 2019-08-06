@@ -11,23 +11,28 @@ import lsafer.services.io.Task;
 import lsafer.view.ViewAdapter;
 
 /**
+ * a view to display level 2
+ * information of a {@link Task}.
+ *
  * @author LSaferSE
- * @version 1 alpha (05-Aug-19)
+ * @version 2 release (06-Aug-19)
  * @since 05-Aug-19
  */
 @SuppressWarnings("WeakerAccess")
 public class TaskIIView extends ViewAdapter {
 
     /**
-     *
+     * targeted {@link Task} to display information from.
      */
     private Task task;
 
     /**
-     * @param context
-     * @param task
+     * initialize this.
+     *
+     * @param context to initialize the view from
+     * @param task    to display information from
      */
-    public TaskIIView(Context context, Task task){
+    public TaskIIView(Context context, Task task) {
         this.task = task;
         this.init(context);
     }

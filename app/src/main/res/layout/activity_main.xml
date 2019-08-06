@@ -18,12 +18,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="50dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
 
             <TextView
                 style="@style/kroov_separator"
-                android:text="@string/Application" />
+                android:text="@string/abs__application" />
 
             <LinearLayout
                 style="@style/kroov_drawerx"
@@ -31,7 +31,7 @@
 
                 <TextView
                     style="@style/kroov_name"
-                    android:text="@string/Permissions" />
+                    android:text="@string/abs__permissions" />
 
                 <TextView
                     style="@style/kroov_description"
@@ -57,12 +57,17 @@
 
             <View style="@style/kroov_split" />
 
-            <LinearLayout style="@style/kroov_drawerx"
+            <LinearLayout
+                style="@style/kroov_drawerx"
                 android:onClick="_ui">
-                <TextView style="@style/kroov_name"
-                    android:text="User Interface"/>
-                <TextView style="@style/kroov_description"
-                    android:text="edit the aplication layout, theme, preferences"/>
+
+                <TextView
+                    style="@style/kroov_name"
+                    android:text="@string/abs__user_interface" />
+
+                <TextView
+                    style="@style/kroov_description"
+                    android:text="@string/txt__description_user_interface" />
             </LinearLayout>
 
             <View style="@style/kroov_split" />

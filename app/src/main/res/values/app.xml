@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Advanced User Services</string>
-    <string name="app_version">beta 7</string>
-    <integer name="version">7</integer>
-    <integer name="version_compat">7</integer>
-</resources>
