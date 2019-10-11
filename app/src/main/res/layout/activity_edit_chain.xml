@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="?android:colorPrimaryDark"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<TextView
+			android:id="@+id/name"
+			android:text="@string/abs__task"
+			style="@style/kroov_titlex"/>
+	
+	<ScrollView
+			android:fillViewport="true"
+			android:id="@+id/banner"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:layout_width="match_parent">
+		
+		<include layout="@layout/edit_chain_source"/>
+	</ScrollView>
+	
+	<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			style="?android:buttonBarStyle">
+		
+		<Button
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_width="match_parent"
+				android:onClick="_save"
+				android:text="@string/abs__save"
+				style="?android:buttonBarButtonStyle"/>
+		
+		<Button
+				android:id="@+id/wizard"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_width="match_parent"
+				android:onClick="_mode"
+				android:text="@string/abs__mode"
+				style="?android:buttonBarButtonStyle"/>
+	
+	</LinearLayout>
+
+</LinearLayout>

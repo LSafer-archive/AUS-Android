@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import lsafer.aus.R;
 import lsafer.aus.io.UserInterface;
 import lsafer.view.Refreshable;
@@ -22,17 +20,17 @@ import lsafer.view.Refreshable;
 public class UIActivity extends AppCompatActivity implements Refreshable {
 
     @Override
-    public void refresh() {
-        UserInterface.$.<UserInterface>reset().load();
-        this.<Button>findViewById(R.id.theme).setText(UserInterface.$.theme);
-    }
-
-    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setTheme(UserInterface.theme());
         this.setContentView(R.layout.activity_ui);
         this.refresh();
+    }
+
+    @Override
+    public void refresh() {
+        UserInterface.$.<UserInterface>reset().load();
+        this.<Button>findViewById(R.id.theme).setText(UserInterface.$.theme);
     }
 
     /**

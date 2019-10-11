@@ -1,44 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Advanced User Services</string>
-    <string name="app_version">beta 8</string>
-
-    <string name="abs__theme">Theme</string>
-    <string name="abs__task">Task</string>
-    <string name="abs__user_interface">User Interface</string>
-    <string name="abs__style">Style</string>
-    <string name="abs__start">Start</string>
-    <string name="abs__application">Application</string>
-    <string name="abs__save">Save</string>
-    <string name="abs__permissions">Permissions</string>
-    <string name="abs__battery_optimization">Battery Optimization</string>
-    <string name="abs__storage">Storage</string>
-    <string name="abs__write_system_settings">Write System Settings</string>
-    <string name="abs__display_over_other_apps">Display Over Other Apps</string>
-
-    <string name="txt__description_storage">to be able to read/edit demons at storage</string>
-    <string name="txt__description_write_system_settings">
-        to be able to adjust system values,
-        such as brightness and volume;
-        this permission is not that dangerous,
-        because most of important system settings is covered with system agents protection
-    </string>
-    <string name="txt__description_display_over_other_apps">to be able to put views floating on display</string>
-    <string name="txt__description_battery_optimization">to avoid been killed from background</string>
-    <string name="txt__description_theme">the overall theme of</string>
-
-    <string name="sym__cry" translatable="false">:\'(</string>
-    <string name="sym__questionMark" translatable="false">\?</string>
-    <string name="sym__minus" translatable="false">-</string>
-    <string name="sym__dots" translatable="false" tools:ignore="TypographyEllipsis">...</string>
-    <string name="smp__hint_json" tools:ignore="TypographyEllipsis">{\"key\":\"value\", ...}</string>
-    <string name="abs__profiles">Profiles</string>
-    <string name="abs__reinitialize">Reinitialize</string>
-    <string name="abs__profile">Profile</string>
-    <string name="abs__support">Support</string>
-    <string name="txt__description_user_interface">edit the application layout, theme, preferences</string>
-    <string name="plh__class_name">class: %s</string>
-    <string name="plh__apk_path">source: %s</string>
-    <string name="plh__activated">activated: %b</string>
-    <string name="plh__status">status: %s</string>
+	<string name="app_name">Advanced User Services</string>
+	<string name="app_version">beta 8</string>
+	
+	<string name="abs__start">Start</string>
+	<string name="abs__application">Application</string>
+	<string name="abs__save">Save</string>
+	<string name="abs__permissions">Permissions</string>
+	<string name="abs__battery_optimization">Battery Optimization</string>
+	<string name="abs__storage">Storage</string>
+	<string name="abs__write_system_settings">Write System Settings</string>
+	<string name="abs__display_over_other_apps">Display Over Other Apps</string>
+	<string name="abs__task">Task</string>
+	<string name="abs__theme">Theme</string>
+	<string name="abs__user_interface">User Interface</string>
+	<string name="abs__style">Style</string>
+	<string name="abs__profiles">Profiles</string>
+	<string name="abs__reinitialize">Reinitialize</string>
+	<string name="abs__profile">Profile</string>
+	<string name="abs__support">Support</string>
+	<string name="abs__mode">Mode</string>
+	<string name="abs__yes">Yes</string>
+	
+	<string name="sym__cry"
+	        translatable="false">:\'(
+	</string>
+	<string name="sym__questionMark"
+	        translatable="false">\?
+	</string>
+	<string name="sym__minus"
+	        translatable="false">-
+	</string>
+	<string name="sym__dots"
+	        tools:ignore="TypographyEllipsis"
+	        translatable="false">...
+	</string>
+	
+	<string name="txt__description_storage">to be able to read/edit demons at storage</string>
+	<string name="txt__description_write_system_settings">
+		to be able to adjust system values,
+		such as brightness and volume;
+		this permission is not that dangerous,
+		because most of important system settings is covered with system agents protection
+	</string>
+	<string name="txt__description_display_over_other_apps">to be able to put views floating on display</string>
+	<string name="txt__description_battery_optimization">to avoid been killed from background</string>
+	<string name="txt__description_theme">the overall theme of</string>
+	<string name="txt__description_user_interface">edit the application layout, theme, preferences</string>
+	
+	<string name="plh__class_name">class: %s</string>
+	<string name="plh__apk_path">source: %s</string>
+	<string name="plh__activated">activated: %b</string>
+	<string name="plh__status">status: %s</string>
+	
+	<string name="smp__hint_json"
+	        tools:ignore="TypographyEllipsis">{\"key\":\"value\", ...}
+	</string>
+	<string name="plh__value_name">[%s]:</string>
+	<string name="plh__process_deleted_success">%s [%i] deleted successfully</string>
+	<string name="plh__process_deleted_faild">can\'t delete %s [%i]</string>
+	<string name="plh__process_delete_message">do you really want to delete %s [%i] ?</string>
+	<string name="abs__no">No</string>
+	<string name="plh__path">path: %s</string>
+	<string name="plh__process_mixed_name">%s/ %s</string>
+	<string name="txt__process_new_title">New Process</string>
+	<string name="txt__process_new_message">name:</string>
+	<string name="abs__kill_then_refresh">Kill Then Refresh</string>
+	<string name="abs__foreground_service">Foreground Service</string>
+	<string name="txt__description_foreground_service">allow this application to start services</string>
+	<string name="abs__invoker">Invoker</string>
+	<string name="txt__description_invoker">allow this application to Invoke AUS services</string>
 </resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools">
+	
+	<LinearLayout
+			android:background="@drawable/kroov_round_silk"
+			android:padding="10dp"
+			style="@style/kroov_drawerx">
+		
+		<TextView
+				android:id="@+id/key"
+				style="@style/kroov_separator"
+				tools:text="my_field"/>
+		
+		<LinearLayout style="@style/kroov_drawerx">
+			
+			<TextView
+					android:layout_width="wrap_content"
+					android:text="set to: "
+					android:textSize="15sp"
+					style="@style/kroov_description"/>
+			
+			<EditText
+					android:background="@null"
+					android:id="@+id/value"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="5dp"
+					style="@style/kroov_feather"
+					tools:text="{&quot;key&quot;: &quot;value&quot;}"/>
+			
+			<TextView
+					android:layout_marginTop="10dp"
+					android:layout_width="wrap_content"
+					android:text="default:"
+					android:textSize="15sp"
+					style="@style/kroov_description"/>
+			
+			<TextView
+					android:id="@+id/defaultValue"
+					android:layout_width="wrap_content"
+					android:textSize="15sp"
+					style="@style/kroov_description"
+					tools:text="{&quot;integer&quot;: 8}"/>
+			
+			<TextView
+					android:layout_marginTop="10dp"
+					android:layout_width="wrap_content"
+					android:text="description:"
+					android:textSize="15sp"
+					style="@style/kroov_description"/>
+			
+			<TextView
+					android:id="@+id/description"
+					android:layout_width="wrap_content"
+					android:textSize="15sp"
+					style="@style/kroov_description"
+					tools:text="a description for the targeted\nfield whatever whatever whatever\nwhatever"/>
+			
+			<LinearLayout
+					android:id="@+id/values_linear"
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="vertical"/>
+		
+		</LinearLayout>
+	
+	</LinearLayout>
+
+</LinearLayout>

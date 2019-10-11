@@ -1,7 +1,6 @@
 package lsafer.aus.io;
 
 import android.os.Environment;
-
 import lsafer.aus.R;
 import lsafer.io.JSONFileStructure;
 
@@ -17,8 +16,12 @@ public class UserInterface extends JSONFileStructure {
     /**
      * the instance.
      */
-    public static UserInterface $ = new UserInterface().<UserInterface>remote(
-            Environment.getExternalStoragePublicDirectory("Services/UI")).load();
+    public transient static UserInterface $ = new UserInterface().<UserInterface>remote(Environment.getExternalStoragePublicDirectory("Services/UI")).load();
+
+    /**
+     * what editor should use on editing tasks.
+     */
+    public String editor_mode = "wizard";
 
     /**
      * the UI theme.
@@ -31,13 +34,23 @@ public class UserInterface extends JSONFileStructure {
      * @return the theme resources id
      */
     public static int theme() {
-        switch (UserInterface.$.theme) {
-            case "black":
-                return R.style.BlackAppTheme;
+        return UserInterface.theme(UserInterface.$.theme);
+    }
+
+    /**
+     * get the theme resources id from the given data string..
+     *
+     * @param source data
+     * @return the theme resources id
+     */
+    public static int theme(String source) {
+        switch (source) {
             case "light":
-                return R.style.LightAppTheme;
+                return R.style.KroovLightAppTheme;
+            case "black":
             default:
-                return R.style.BlackAppTheme;
+                return R.style.KroovBlackAppTheme;
         }
     }
+
 }

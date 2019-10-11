@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools">
+	
+	<LinearLayout
+			android:background="@drawable/kroov_round_silk"
+			android:id="@+id/banner"
+			android:padding="10dp"
+			style="@style/kroov_drawerx">
+		
+		<TextView
+				android:id="@+id/name"
+				android:textStyle="bold"
+				style="@style/kroov_title"
+				tools:text="MyChain"/>
+		
+		<TextView
+				android:id="@+id/status"
+				android:layout_marginStart="15dp"
+				style="@style/kroov_description"
+				tools:text="status: activated"/>
+		
+		<TextView
+				android:id="@+id/path"
+				android:layout_marginStart="15dp"
+				style="@style/kroov_description"
+				tools:text="path: /storage/emulated/0/Services/MyChain"/>
+		
+		<LinearLayout
+				android:id="@+id/processes_linear"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="15dp"
+				android:layout_width="match_parent"
+				android:orientation="vertical"/>
+	
+	</LinearLayout>
+
+</LinearLayout>

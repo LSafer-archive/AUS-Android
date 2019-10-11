@@ -1,22 +1,23 @@
 package lsafer.aus.activity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import lsafer.aus.R;
 import lsafer.aus.io.UserInterface;
-import lsafer.aus.view.ProfileIView;
+import lsafer.aus.view.i.ProfileIView;
+import lsafer.services.annotation.Invokable;
 import lsafer.services.io.Profile;
 import lsafer.services.io.Profiles;
-import lsafer.services.text.Run;
+import lsafer.services.util.Arguments;
+import lsafer.services.util.Service;
 import lsafer.view.Refreshable;
 
 /**
@@ -28,37 +29,10 @@ import lsafer.view.Refreshable;
  */
 public class ProfilesActivity extends AppCompatActivity implements Refreshable, ProfileIView.EventListener {
 
-    @Override
-    public void refresh() {
-        LinearLayout profiles_linear = this.findViewById(R.id.profiles_linear);
-
-        profiles_linear.removeAllViews();
-
-        Profiles.$.forEach((Object key, Profile profile) -> profiles_linear.addView(
-                new ProfileIView(this, this, profile).getView()));
-    }
-
-    @Override
-    public void onProfileClick(ProfileIView adapter) {
-        Intent intent = new Intent(this, ProfileActivity.class);
-        intent.setData(Uri.parse(adapter.getProfile().remote().toString()));
-        this.startActivity(intent);
-    }
-
-    @Override
-    public boolean onProfileLongClick(ProfileIView adapter) {
-        new AlertDialog.Builder(this, R.style.AppAlertDialog)
-                .setMessage("do you really want to delete \"" + adapter.getProfile().remote().getName() + "\" profile ?")
-                .setPositiveButton("yes", (d, w) -> {
-                    boolean ww = adapter.getProfile().delete();
-                    if (ww) this.refresh();
-
-                    //TODO resources %s deleting %b
-                    Toast.makeText(this, ww ? adapter.getProfile().remote().getName() + " deleted" : ");", Toast.LENGTH_LONG).show();
-                })
-                .show();
-        return false;
-    }
+    /**
+     *
+     */
+    private Profiles profiles = new Profiles();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,24 +40,72 @@ public class ProfilesActivity extends AppCompatActivity implements Refreshable, 
         this.setTheme(UserInterface.theme());
         this.setContentView(R.layout.activity_profiles);
 
-        Profiles.$.remote(Environment.getExternalStoragePublicDirectory("Services/Profiles"));
-
-        if (!Profiles.$.$initialized) Profiles.$.<Profiles>load().initialize(this);
-
+        this.profiles.remote(Environment.getExternalStoragePublicDirectory("Services/Profiles"));
         this.refresh();
     }
 
+    @Override
+    public void onProfileClick(ProfileIView adapter) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("profile", adapter.getProfile());
+        this.startActivity(intent);
+    }
+
+    @Override
+    public boolean onProfileLongClick(ProfileIView adapter) {
+        new AlertDialog.Builder(this, R.style.KroovAlertDialogTheme)
+                .setMessage(
+                        "do you really want to delete \"" + adapter.getProfile().remote().getName() + "\" profile ?")
+                .setPositiveButton("yes", (d, w) -> {
+                    boolean ww = adapter.getProfile().delete();
+                    if (ww) this.refresh();
+
+                    //TODO resources %s deleting %b
+                    Toast.makeText(this,
+                            ww ? adapter.getProfile().remote().getName() + " deleted" : ");", Toast.LENGTH_LONG).show();
+                })
+                .show();
+        return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.refresh();
+    }
+
+    @Override
+    public void refresh() {
+        this.profiles.<Profiles>reset().load();
+        LinearLayout profiles_linear = this.findViewById(R.id.profiles_linear);
+
+        profiles_linear.removeAllViews();
+
+        this.profiles.map(String.class, Profile.class).forEach((name, profile) ->
+                profiles_linear.addView(new ProfileIView(this, this, profile).getView()));
+    }
+
     /**
-     * run {@link Run#stop "stop"} on {@link Profiles global profiles instance}
-     * the reset, reload it and reinitialize it then refresh this.
-     *
-     * @param view that had called this method
+     * @param view
      */
-    public void _killThenReload(View view) {
-        if (Profiles.$.$initialized) {
-            Profiles.$.run(Run.stop, this);
-        }
-        Profiles.$.<Profiles>reset().<Profiles>load().initialize(this);
+    public void _add(View view) {
+        AlertDialog dialog = new AlertDialog.Builder(this, R.style.KroovAlertDialogTheme)
+                .setTitle(R.string.txt__process_new_title)
+                .setMessage(R.string.txt__process_new_message)
+                .setView(R.layout.edit_dialog_input)
+                .setPositiveButton("done", (d, w) -> {
+                    this.profiles.put(((Dialog) d).<EditText>findViewById(R.id.text).getText().toString(), new Profile());
+                    boolean ww = this.profiles.save();
+                    this.refresh();
+                })
+                .show();
+    }
+
+    /**
+     * @param view
+     */
+    public void _killThenRefresh(View view) {
+        this.profiles.map(String.class, Profile.class).forEach((name, profile) -> profile.callAll(this, Service.ACTION_SHUTDOWN, Invokable.stop, new Arguments()));
         this.refresh();
     }
 

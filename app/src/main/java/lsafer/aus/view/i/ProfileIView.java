@@ -1,18 +1,19 @@
-package lsafer.aus.view;
+package lsafer.aus.view.i;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import lsafer.aus.R;
-import lsafer.io.JSONFileStructure;
+import lsafer.aus.view.ii.ChainIIView;
+import lsafer.services.annotation.Invokable;
+import lsafer.services.io.Chain;
 import lsafer.services.io.Profile;
-import lsafer.services.io.Task;
-import lsafer.services.text.Run;
+import lsafer.services.util.Arguments;
+import lsafer.services.util.Service;
 import lsafer.view.Refreshable;
 import lsafer.view.ViewAdapter;
 
@@ -30,6 +31,7 @@ public class ProfileIView extends ViewAdapter implements Refreshable {
      * the listener to invoke when specific events happened in this.
      */
     private EventListener listener;
+
     /**
      * targeted {@link Profile} to display information from.
      */
@@ -45,36 +47,44 @@ public class ProfileIView extends ViewAdapter implements Refreshable {
     public ProfileIView(Context context, EventListener listener, Profile profile) {
         this.profile = profile;
         this.listener = listener;
-        this.init(context);
+        this.initialize(context, null);
         this.refresh();
     }
 
-    @SuppressLint("InflateParams")
     @Override
-    public View onCreateView(LayoutInflater inflater) {
-        View view = inflater.inflate(R.layout.view_i_profile, null);
-        LinearLayout tasks_linear = view.findViewById(R.id.tasks_linear);
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent) {
+        View view = inflater.inflate(R.layout.view_i_profile, parent);
 
-        view.setOnLongClickListener(v -> this.listener.onProfileLongClick(this));
         view.setOnClickListener(v -> this.listener.onProfileClick(this));
+        view.setOnLongClickListener(v -> this.listener.onProfileLongClick(this));
 
         view.<TextView>findViewById(R.id.name).setText(this.profile.remote().getName());
-        view.findViewById(R.id.liver).setOnClickListener(v -> {
-            this.profile.run(this.profile.$status.equals(Run.start) ? Run.stop : Run.start, this.getContext());
+        view.<Button>findViewById(R.id.liver).setOnClickListener(v -> {
+            if (this.profile.temp.method.equals(Invokable.start))
+                this.profile.callAll(this.getContext(), 0, Service.ACTION_SHUTDOWN, Invokable.stop, new Arguments());
+            else
+                this.profile.callAll(this.getContext(), 0, Service.ACTION_INVOKE, Invokable.start, new Arguments());
+
             this.refresh();
         });
-
-        this.profile.forEach((Object key, JSONFileStructure task) ->
-                tasks_linear.addView(new TaskIIView(this.getContext(), task.clone(Task.class)).getView()));
 
         return view;
     }
 
     @Override
     public void refresh() {
-        this.getView().<Button>findViewById(R.id.liver).setText(this.getContext().getString(R.string.plh__status, this.profile.$status));
+        this.profile.<Profile>reset().load();
+
+        LinearLayout chains_linear = this.getView().findViewById(R.id.chains_linear);
+
+        chains_linear.removeAllViews();
+
+        this.profile.map(String.class, Chain.class).forEach((name, chain) -> chains_linear.addView(new ChainIIView(this.getContext(), chain).getView()));
+
+        this.getView().<Button>findViewById(R.id.liver).setText(this.profile.temp.method);
+
         this.getView().findViewById(R.id.banner).setBackground(this.getContext().getDrawable(
-                this.profile.$status.equals(Run.start) ? R.drawable.round_good : R.drawable.round_silk));
+                this.profile.temp.method.equals(Invokable.start) ? R.drawable.kroov_round_good : R.drawable.kroov_round_silk));
     }
 
     /**
@@ -83,7 +93,7 @@ public class ProfileIView extends ViewAdapter implements Refreshable {
      * @return the current targeted task
      */
     public Profile getProfile() {
-        return profile;
+        return this.profile;
     }
 
     /**
@@ -105,7 +115,7 @@ public class ProfileIView extends ViewAdapter implements Refreshable {
          * @return what to return to {@link View.OnLongClickListener#onLongClick(View)}
          */
         default boolean onProfileLongClick(ProfileIView adapter) {
-            return true;
+            return false;
         }
     }
 

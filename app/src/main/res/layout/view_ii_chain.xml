@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@+id/name"
+          style="@style/kroov_description"
+          tools:text="MyTask lsafer.services.process.ex.Example"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"/>

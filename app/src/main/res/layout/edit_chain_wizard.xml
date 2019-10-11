@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools">
+	
+	<LinearLayout style="@style/kroov_drawerx">
+		
+		<TextView
+				android:id="@+id/name"
+				android:layout_width="wrap_content"
+				android:textSize="15sp"
+				style="@style/kroov_description"
+				tools:text="Daemon0"/>
+		
+		<TextView
+				android:id="@+id/path"
+				android:layout_width="wrap_content"
+				android:textSize="15sp"
+				style="@style/kroov_description"
+				tools:text="/storage/emulated/0/Services/Daemon0"/>
+	
+	</LinearLayout>
+	
+	<LinearLayout
+			android:id="@+id/nodes_linear"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"/>
+	
+	<LinearLayout
+			android:id="@+id/processes_linear"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"/>
+	
+	<TextView
+			android:background="@drawable/kroov_round_silk_dark"
+			android:fontFamily="serif-monospace"
+			android:gravity="center"
+			android:id="@+id/add"
+			android:layout_height="100dp"
+			android:padding="10dp"
+			android:text="Add Process"
+			style="@style/kroov_drawerx"/>
+
+</LinearLayout>

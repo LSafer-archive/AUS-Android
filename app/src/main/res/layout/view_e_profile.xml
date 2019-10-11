@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools">
+	
+	<LinearLayout
+			android:background="@drawable/kroov_round_silk"
+			android:padding="10dp"
+			style="@style/kroov_drawerx">
+		
+		
+		<LinearLayout style="@style/kroov_drawerx">
+			
+			<TextView
+					android:id="@+id/name"
+					style="@style/kroov_name"
+					tools:text="OnEdgeGesture"/>
+			
+			<TextView
+					android:text="class:"
+					android:textSize="15sp"
+					style="@style/kroov_description"/>
+			
+			<TextView
+					android:id="@+id/klass"
+					android:textSize="15sp"
+					style="@style/kroov_description"
+					tools:text="lsafer.services.?.ex.Example"/>
+			
+			<TextView
+					android:layout_marginTop="10dp"
+					android:text="description:"
+					android:textSize="15sp"
+					style="@style/kroov_description"/>
+			
+			<TextView
+					android:id="@+id/description"
+					android:textSize="15sp"
+					style="@style/kroov_description"
+					tools:text="a description whatever, whatever\nwhaterver whatever."/>
+		
+		</LinearLayout>
+	
+	</LinearLayout>
+
+</LinearLayout>

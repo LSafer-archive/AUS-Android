@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?android:colorPrimaryDark"
-    android:orientation="vertical"
-    tools:context=".activity.ProfilesActivity">
-
-    <LinearLayout style="@style/kroov_head">
-
-        <TextView
-            style="@style/kroov_title"
-            android:text="@string/abs__profiles" />
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
-            android:id="@+id/profiles_linear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="50dp" />
-
-    </ScrollView>
-
-    <Button
-        style="?android:buttonBarButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="_killThenReload"
-        android:text="@string/abs__reinitialize" />
+<LinearLayout android:background="?android:colorPrimaryDark"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              tools:context=".activity.ProfilesActivity"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools">
+	
+	<LinearLayout style="@style/kroov_head">
+		
+		<TextView
+				android:text="@string/abs__profiles"
+				style="@style/kroov_title"/>
+	</LinearLayout>
+	
+	<ScrollView
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:layout_width="match_parent">
+		
+		<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:paddingBottom="50dp">
+			
+			<LinearLayout
+					android:id="@+id/profiles_linear"
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="vertical"/>
+			
+			<TextView
+					android:background="@drawable/kroov_round_silk"
+					android:fontFamily="serif-monospace"
+					android:gravity="center"
+					android:layout_height="100dp"
+					android:onClick="_add"
+					android:padding="10dp"
+					android:text="Add Profile"
+					style="@style/kroov_drawerx"/>
+		
+		</LinearLayout>
+	
+	</ScrollView>
+	
+	<Button
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:onClick="_killThenRefresh"
+			android:text="@string/abs__kill_then_refresh"
+			style="?android:buttonBarButtonStyle"/>
 
 </LinearLayout>

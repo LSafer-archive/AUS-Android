@@ -3,9 +3,7 @@ package lsafer.aus.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import lsafer.aus.R;
 import lsafer.aus.io.UserInterface;
 
@@ -43,18 +41,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * opens {@link PermissionsActivity}.
-     *
-     * @param view that had called this method
+     * @param view
      */
     public void _permissions(View view) {
         this.startActivity(new Intent(this, PermissionsActivity.class));
     }
 
     /**
-     * start {@link ProfilesActivity}.
-     *
-     * @param view that had called this method
+     * @param view
      */
     public void _profiles(View view) {
         this.startActivity(new Intent(this, ProfilesActivity.class));
@@ -68,4 +62,30 @@ public class MainActivity extends AppCompatActivity {
     public void _ui(View view) {
         this.startActivity(new Intent(this, UIActivity.class));
     }
+
+//
+//    /**
+//     * @param view
+//     */
+//    public void _packages(View view) {
+//        this.startActivity(new Intent(this, PackagesActivity.class));
+//    }
+//
+//    /**
+//     * opens {@link PermissionsActivity}.
+//     *
+//     * @param view that had called this method
+//     */
+//    public void _permissions(View view) {
+//        this.startActivity(new Intent(this, PermissionsActivity.class));
+//    }
+//
+//    /**
+//     * start {@link ProfilesActivity}.
+//     *
+//     * @param view that had called this method
+//     */
+//    public void _profiles(View view) {
+//        this.startActivity(new Intent(this, ProfilesActivity.class));
+//    }
 }
